@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container theme-showcase" role="main" >
+    <div class="jumbotron">
+        <h1>Guest Book</h1>
+        <a type="button" class="btn btn-link" href="{{ url_for('main.sign') }}">
+            Sign the Guest Book
+        </a>
+    </div>
+
+    <div class="page-header">
+        <h1>Name</h1>
+    </div>
+
+    <div class="well">
+        <p>This is a comment</p>
+    </div>
+
+</div> <!-- /container -->
+{% endblock content %}
+
+
