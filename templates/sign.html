@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% block title %}
+Sign In | Guest Book
+{% endblock title %}
 {% block content %}
 <div class="container">
-
+    <a type="button" class="btn btn-info" href="{{ url_for('main.index') }}">
+        <i class="fas fas-home"></i><span class="ml-1">Go Home</span>
+    </a>
     <form class="form-signin" method="POST" action="">
         <h2 class="form-signin-heading">Sign the Guest Book</h2>
         <div class="form-group">
