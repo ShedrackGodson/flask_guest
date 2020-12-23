@@ -32,6 +32,7 @@ def sign_up():
     # Commiting the db
     db.session.add(comment_obj)
     db.session.commit()
+    flash("Added successfully.", "success")
     # Redirecting to the home page
     return redirect(url_for("main.index"))
 
