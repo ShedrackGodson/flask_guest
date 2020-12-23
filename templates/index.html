@@ -11,13 +11,14 @@ Guest Book
         </a>
     </div>
 
-    <div class="page-header">
-        <h1>Name</h1>
+    {% for comment in comments_qs %}
+       <div class="page-header">
+        <h1>{{comment.name}}</h1>
     </div>
 
     <div class="well">
-        <p>This is a comment</p>
+        <p>{{comment.comment|safe}}</p>
     </div>
-
+    {% endfor %}
 </div> <!-- /container -->
 {% endblock content %}

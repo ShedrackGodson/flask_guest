@@ -6,8 +6,8 @@ main = Blueprint("main", __name__) # Instantiating a blue print
 
 @main.route("/") # Routing
 def index():
-
-    return render_template("index.html") # Rendering what to be seen on the template
+    comments_qs = Comment.query.all() # Querying all comment objects
+    return render_template("index.html", comments_qs=comments_qs) # Rendering what to be seen on the template
 
 
 @main.route("/sign")
