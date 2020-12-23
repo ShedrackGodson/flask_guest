@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect, url_for
+from . import db
+from .models import Comment
 
 main = Blueprint("main", __name__) # Instantiating a blue print
 
@@ -19,5 +21,16 @@ def sign_up():
     name = request.form.get("name")
     comment = request.form.get("comment")
     
-    return f'Name: {name} Comment: {comment}'
+    # Create a comment object
+    comment_obj = Comment(
+        name = name,
+        comment = comment
+    )
+
+    # Commiting the db
+    db.session.add(comment_obj)
+    db.session.commit()
+    print(comment_obj)
+    # Redirecting to the home page
+    return redirect(url_for("main.index"))
 
