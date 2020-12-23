@@ -6,7 +6,7 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-    app.secret_key = b'_5#dk)(023_2hkj' # Secret Key Of the App
+    app.secret_key = b'_5#dk)(023_2hkj' # This key is not actual
 
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite3"
 
