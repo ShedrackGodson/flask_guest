@@ -1,12 +1,9 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 main = Blueprint("main", __name__) # Instantiating a blue print
 
 @main.route("/") # Routing
 def index():
-    context = dict()
-    context["num1"] = 23
-    context["num2"] = 1997
 
     return render_template("index.html") # Rendering what to be seen on the template
 
@@ -15,4 +12,12 @@ def index():
 def sign():
    
     return render_template("sign.html")
+
+
+@main.route("/sign", methods=["POST"])
+def sign_up():
+    name = request.form.get("name")
+    comment = request.form.get("comment")
+    
+    return f'Name: {name} Comment: {comment}'
 
