@@ -12,12 +12,19 @@ Guest Book
     </div>
 
     {% for comment in comments_qs %}
-       <div class="page-header">
+    <div class="page-header">
         <h1>{{comment.name}}</h1>
     </div>
 
     <div class="well">
-        <p>{{comment.comment|safe}}</p>
+        <p>{{comment.comment|safe}}</p> <br>
+        <a href="{{ url_for('main.sign_delete', id=comment.id ) }}">
+            <button class="btn btn-danger">Delete</button>
+        </a>
+    
+        <a href="{{ url_for('main.sign_edit', id=comment.id ) }}">
+            <button class="btn btn-success">Update</button>
+        </a>
     </div>
     {% endfor %}
 </div> <!-- /container -->

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+      <form action="{{ url_for('main.sign_delete_post', id=sign_obj.id) }}" method="post">
+        <h2>Are you sure you want to delete: {{sign_obj}}</h2>
+
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{{ url_for('main.index') }}">
+            <button type="button" class="btn btn-primary float-right ml-3">Cancel</button>
+        </a>
+      </form>
+  </div>
+{% endblock content %}
